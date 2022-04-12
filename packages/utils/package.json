@@ -1,0 +1,27 @@
+{
+  "name": "@signpdf/utils",
+  "version": "2.0.0",
+  "description": "> TODO: description",
+  "author": "Valery Buchinsky <djmute@abv.bg>",
+  "homepage": "https://github.com/vbuch/node-signpdf#readme",
+  "license": "ISC",
+  "main": "lib/utils.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbuch/node-signpdf.git"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/vbuch/node-signpdf/issues"
+  }
+}
