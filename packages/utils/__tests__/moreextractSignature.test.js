@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import PDFDocument from 'pdfkit';
 import signer from './signpdf';
 import {pdfkitAddPlaceholder, extractSignature} from './helpers';

@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import SignPdfError from '../../SignPdfError';
 import readRefTable, {getXref} from './readRefTable';
 

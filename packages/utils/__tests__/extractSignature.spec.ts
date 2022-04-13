@@ -1,15 +1,15 @@
-import fs from 'fs';
-import extractSignature from './extractSignature';
-import SignPdfError from '../SignPdfError';
+import * as fs from 'fs';
+import extractSignature from '../src/extractSignature';
+import SignPdfError, {SignPdfErrorType} from '../src/SignPdfError'
 
 describe('extractSignature', () => {
     it('expects PDF to be Buffer', () => {
         try {
-            extractSignature('non-buffer');
+            extractSignature('non-buffer' as unknown as Buffer);
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_INPUT);
+            expect(e.type).toBe(SignPdfErrorType.INPUT);
         }
     });
     it('expects PDF to contain a ByteRange placeholder', () => {
@@ -18,7 +18,7 @@ describe('extractSignature', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
         try {
@@ -26,7 +26,7 @@ describe('extractSignature', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
         try {
@@ -34,7 +34,7 @@ describe('extractSignature', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
     });

@@ -1,6 +1,6 @@
 import PDFDocument from 'pdfkit';
 import forge from 'node-forge';
-import fs from 'fs';
+import * as fs from 'fs';
 import signer from './signpdf';
 import {pdfkitAddPlaceholder, extractSignature, plainAddPlaceholder} from './helpers';
 import SignPdfError from './SignPdfError';

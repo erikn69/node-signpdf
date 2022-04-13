@@ -1,8 +1,4 @@
-import SignPdfError, {
-    ERROR_TYPE_UNKNOWN,
-    ERROR_TYPE_INPUT,
-    ERROR_TYPE_PARSE,
-} from './SignPdfError';
+import SignPdfError, {SignPdfErrorType} from '../src/SignPdfError';
 
 describe('SignPdfError', () => {
     it('SignPdfError extends Error', () => {
@@ -11,13 +7,13 @@ describe('SignPdfError', () => {
     });
     it('type defaults to UNKNOWN', () => {
         const instance = new SignPdfError('Whatever message');
-        expect(instance.type).toBe(ERROR_TYPE_UNKNOWN);
+        expect(instance.type).toBe(SignPdfErrorType.UNKNOWN);
     });
     it('type can be specified', () => {
         [
-            ERROR_TYPE_UNKNOWN,
-            ERROR_TYPE_INPUT,
-            ERROR_TYPE_PARSE,
+            SignPdfErrorType.UNKNOWN,
+            SignPdfErrorType.INPUT,
+            SignPdfErrorType.PARSE,
         ].forEach((type) => {
             const instance = new SignPdfError('Whatever message', type);
             expect(instance.type).toBe(type);

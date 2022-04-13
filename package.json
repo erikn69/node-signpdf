@@ -27,6 +27,7 @@
         "node": ">=12"
     },
     "scripts": {
+        "test": "jest",
         "lint": "./node_modules/.bin/eslint -c .eslintrc --ignore-path .eslintignore ./",
         "prepare": "husky install"
     },
