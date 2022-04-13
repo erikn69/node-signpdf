@@ -1,4 +1,4 @@
-import SignPdfError, { SignPdfErrorType } from './SignPdfError';
+import SignPdfError, {SignPdfErrorType} from './SignPdfError';
 import {DEFAULT_BYTE_RANGE_PLACEHOLDER} from './const';
 
 /**

@@ -1,4 +1,4 @@
-import SignPdfError, { SignPdfErrorType } from "./SignPdfError";
+import SignPdfError, {SignPdfErrorType} from "./SignPdfError";
 
 const sliceLastChar = (pdf, character) => {
     const lastChar = pdf.slice(pdf.length - 1).toString();

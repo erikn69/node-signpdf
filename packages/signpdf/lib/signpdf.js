@@ -1,17 +1,17 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", {value: true});
 exports.SignPdf = exports.SignPdfError = void 0;
 const node_forge_1 = require("node-forge");
 const utils_1 = require("@signpdf/utils");
 var utils_2 = require("@signpdf/utils");
-Object.defineProperty(exports, "SignPdfError", { enumerable: true, get: function () { return utils_2.SignPdfError; } });
+Object.defineProperty(exports, "SignPdfError", {enumerable: true, get: function() { return utils_2.SignPdfError; }});
 class SignPdf {
     constructor() {
         this.byteRangePlaceholder = utils_1.DEFAULT_BYTE_RANGE_PLACEHOLDER;
         this.lastSignature = null;
     }
     sign(pdfBuffer, p12Buffer, additionalOptions = {}) {
-        const options = Object.assign({ asn1StrictParsing: false, passphrase: '' }, additionalOptions);
+        const options = Object.assign({asn1StrictParsing: false, passphrase: ''}, additionalOptions);
         if (!(pdfBuffer instanceof Buffer)) {
             throw new utils_1.SignPdfError('PDF expected as Buffer.', utils_1.SignPdfErrorType.INPUT);
         }
@@ -19,7 +19,7 @@ class SignPdf {
             throw new utils_1.SignPdfError('p12 certificate expected as Buffer.', utils_1.SignPdfErrorType.INPUT);
         }
         let pdf = utils_1.removeTrailingNewLine(pdfBuffer);
-        const { byteRangePlaceholder } = utils_1.findByteRange(pdf);
+        const {byteRangePlaceholder} = utils_1.findByteRange(pdf);
         if (!byteRangePlaceholder) {
             throw new utils_1.SignPdfError(`Could not find empty ByteRange placeholder: ${byteRangePlaceholder}`, utils_1.SignPdfErrorType.PARSE);
         }
@@ -59,7 +59,7 @@ class SignPdf {
         p7.content = node_forge_1.default.util.createBuffer(pdf.toString('binary'));
         let certificate;
         Object.keys(certBags).forEach((i) => {
-            const { publicKey } = certBags[i].cert;
+            const {publicKey} = certBags[i].cert;
             p7.addCertificate(certBags[i].cert);
             if (privateKey.n.compareTo(publicKey.n) === 0
                 && privateKey.e.compareTo(publicKey.e) === 0) {
@@ -85,7 +85,7 @@ class SignPdf {
                 },
             ],
         });
-        p7.sign({ detached: true });
+        p7.sign({detached: true});
         const raw = node_forge_1.default.asn1.toDer(p7.toAsn1()).getBytes();
         if ((raw.length * 2) > placeholderLength) {
             throw new utils_1.SignPdfError(`Signature exceeds placeholder length: ${raw.length * 2} > ${placeholderLength}`, utils_1.SignPdfErrorType.INPUT);

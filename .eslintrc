@@ -1,21 +1,23 @@
 {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint",
+        "jest"
+    ],
     "extends": [
-        "airbnb-base",
-        "plugin:jest/recommended"
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "env": {
         "es6": true,
         "node": true,
         "jest": true
     },
-    "parser": "@babel/eslint-parser",
-    "plugins": [
-        "jest"
-    ],
     "rules": {
         "indent": ["error", 4, { "SwitchCase": 1 }],
         "object-curly-spacing": ["error", "never"],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/__mocks__/*"]}],
         "func-names": ["warn", "never"],
         "no-throw-literal": "off",
         "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
@@ -23,10 +25,5 @@
         "radix": ["error", "as-needed"],
         "class-methods-use-this": "off",
         "jest/no-conditional-expect": "off"
-    },
-    "settings": {
-        "import/resolver": {
-            "babel-module": {}
-        }
     }
 }

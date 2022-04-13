@@ -1,5 +1,4 @@
 import {DEFAULT_BYTE_RANGE_PLACEHOLDER, DEFAULT_SIGNATURE_LENGTH, SUBFILTER_ADOBE_PKCS7_DETACHED} from './const';
-// eslint-disable-next-line import/no-unresolved
 import PDFKitReferenceMock from './pdfkitReferenceMock';
 /**
  * Adds the objects that are needed for Adobe.PPKLite to read the signature.

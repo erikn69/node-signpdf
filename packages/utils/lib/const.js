@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", {value: true});
 exports.SUBFILTER_ETSI_CADES_DETACHED = exports.SUBFILTER_ADOBE_X509_SHA1 = exports.SUBFILTER_ADOBE_PKCS7_SHA1 = exports.SUBFILTER_ADOBE_PKCS7_DETACHED = exports.DEFAULT_BYTE_RANGE_PLACEHOLDER = exports.DEFAULT_SIGNATURE_LENGTH = void 0;
 exports.DEFAULT_SIGNATURE_LENGTH = 8192;
 exports.DEFAULT_BYTE_RANGE_PLACEHOLDER = '**********';
