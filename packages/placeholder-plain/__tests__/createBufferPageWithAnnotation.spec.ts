@@ -1,7 +1,7 @@
-import createBufferPageWithAnnotation from './createBufferPageWithAnnotation';
-import findObject from './findObject';
+import createBufferPageWithAnnotation from '../src/createBufferPageWithAnnotation';
+import findObject from '../src/findObject';
 
-jest.mock('./findObject', () => ({
+jest.mock('../src/findObject', () => ({
     __esModule: true,
     default: jest.fn(),
 }));
@@ -11,8 +11,11 @@ describe('createBufferPageWithAnnotation', () => {
         findObject.mockImplementation(() => (
             '/Annots [1 0 R]\n/Something [ELSE HERE]'
         ));
-        const info = {xref: {}};
-        info.xref.offsets = new Map();
+        const info = {
+            xref: {
+                offsets: new Map(),
+            }
+        };
         info.xref.offsets.set(1, 1);
         const buffer = createBufferPageWithAnnotation(
             'pdf',
@@ -26,8 +29,11 @@ describe('createBufferPageWithAnnotation', () => {
         findObject.mockImplementation(() => (
             '/There /Is /Other [] /Stuff /But /No /xxAnnotsxx'
         ));
-        const info = {xref: {}};
-        info.xref.offsets = new Map();
+        const info = {
+            xref: {
+                offsets: new Map(),
+            }
+        };
         info.xref.offsets.set(1, 1);
         const buffer = createBufferPageWithAnnotation(
             'pdf',

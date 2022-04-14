@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import plainAddPlaceholder from './index';
+import plainAddPlaceholder from '../src/index';
 
 describe('plainAddPlaceholder', () => {
     it('adds placeholder to a prepared document', () => {

@@ -1,5 +1,5 @@
-import getIndexFromRef from './getIndexFromRef';
-import SignPdfError from '../../SignPdfError';
+import SignPdfError, {SignPdfErrorType} from '@signpdf/utils';
+import getIndexFromRef from '../src/getIndexFromRef';
 
 describe('getIndexFromRef', () => {
     it('Errors when ref is not found', () => {
@@ -13,7 +13,7 @@ describe('getIndexFromRef', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
     });

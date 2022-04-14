@@ -1,5 +1,5 @@
-import SignPdfError from '../../SignPdfError';
-import xrefToRefMap from './xrefToRefMap';
+import SignPdfError, {SignPdfErrorType} from '@signpdf/utils';
+import xrefToRefMap from '../src/xrefToRefMap';
 
 const xrefStrings = [
     `0 39
@@ -100,7 +100,7 @@ describe('xrefToRefMap', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
         }
     });
     it('Throws an error when unknown in-use flag is uses', () => {
@@ -112,7 +112,7 @@ describe('xrefToRefMap', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
     });
@@ -125,7 +125,7 @@ describe('xrefToRefMap', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
     });

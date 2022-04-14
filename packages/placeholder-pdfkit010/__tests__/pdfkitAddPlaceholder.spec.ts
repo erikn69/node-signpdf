@@ -1,7 +1,7 @@
 import PDFDocument from 'pdfkit';
-import pdfkitAddPlaceholder from './pdfkitAddPlaceholder';
-import {SUBFILTER_ETSI_CADES_DETACHED} from './const';
-import PDFObject from './pdfkit/pdfobject';
+import {SUBFILTER_ETSI_CADES_DETACHED} from '@signpdf/utils'
+import pdfkitAddPlaceholder from '../src/pdfkitAddPlaceholder';
+import PDFObject from '../src/pdfkit/pdfobject';
 
 describe('pdfkitAddPlaceholder', () => {
     it('adds placeholder to PDFKit document', () => {
@@ -11,9 +11,9 @@ describe('pdfkitAddPlaceholder', () => {
             layout: 'portrait',
             bufferPages: true,
         });
-        pdf.info.CreationDate = '';
+        pdf.info.CreationDate = new Date();
 
-        const refs = pdfkitAddPlaceholder({pdf, pdfBuffer: Buffer.from([pdf])});
+        const refs = pdfkitAddPlaceholder({pdf, pdfBuffer: Buffer.from(pdf.toString())});
         expect(Object.keys(refs)).toMatchSnapshot();
         expect(pdf.page.dictionary.data.Annots).toHaveLength(1);
         expect(pdf.page.dictionary.data.Annots[0].data.Subtype).toEqual('Widget');
@@ -32,11 +32,11 @@ describe('pdfkitAddPlaceholder', () => {
             layout: 'portrait',
             bufferPages: true,
         });
-        pdf.info.CreationDate = '';
+        pdf.info.CreationDate = new Date();
 
         const refs = pdfkitAddPlaceholder({
             pdf,
-            pdfBuffer: Buffer.from([pdf]),
+            pdfBuffer: Buffer.from(pdf.toString()),
             reason: 'test reason',
             contactInfo: 'testemail@test.com',
             name: 'test name',
@@ -59,11 +59,11 @@ describe('pdfkitAddPlaceholder', () => {
             layout: 'portrait',
             bufferPages: true,
         });
-        pdf.info.CreationDate = '';
+        pdf.info.CreationDate = new Date();
 
         const refs = pdfkitAddPlaceholder({
             pdf,
-            pdfBuffer: Buffer.from([pdf]),
+            pdfBuffer: Buffer.from(pdf.toString()),
             reason: 'test reason',
         });
         expect(Object.keys(refs)).toMatchSnapshot();
@@ -84,11 +84,11 @@ describe('pdfkitAddPlaceholder', () => {
             layout: 'portrait',
             bufferPages: true,
         });
-        pdf.info.CreationDate = '';
+        pdf.info.CreationDate = new Date();
 
         const refs = pdfkitAddPlaceholder({
             pdf,
-            pdfBuffer: Buffer.from([pdf]),
+            pdfBuffer: Buffer.from(pdf.toString()),
             reason: 'test reason',
             subFilter: SUBFILTER_ETSI_CADES_DETACHED,
         });

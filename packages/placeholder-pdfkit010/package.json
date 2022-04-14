@@ -22,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/vbuch/node-signpdf/issues"
+  },
+  "dependencies": {
+    "@signpdf/utils": "^2.0.0"
   }
 }

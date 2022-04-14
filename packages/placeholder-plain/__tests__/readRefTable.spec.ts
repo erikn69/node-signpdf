@@ -1,6 +1,6 @@
 import * as fs from 'fs';
-import SignPdfError from '../../SignPdfError';
-import readRefTable, {getXref} from './readRefTable';
+import SignPdfError, {SignPdfErrorType} from '@signpdf/utils';
+import readRefTable, {getXref} from '../src/readRefTable';
 
 describe('getXref', () => {
     it('Throws an error when xref is not found at position', () => {
@@ -11,7 +11,7 @@ describe('getXref', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
     });
@@ -23,7 +23,7 @@ describe('getXref', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
     });
@@ -35,7 +35,7 @@ describe('getXref', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
     });
@@ -47,7 +47,7 @@ describe('getXref', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
     });
@@ -59,7 +59,7 @@ describe('getXref', () => {
             expect('here').not.toBe('here');
         } catch (e) {
             expect(e instanceof SignPdfError).toBe(true);
-            expect(e.type).toBe(SignPdfError.TYPE_PARSE);
+            expect(e.type).toBe(SignPdfErrorType.PARSE);
             expect(e.message).toMatchSnapshot();
         }
     });
