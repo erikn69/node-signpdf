@@ -28,7 +28,7 @@ const escapable = {
 // Convert little endian UTF-16 to big endian
 const swapBytes = (buff) => buff.swap16();
 
-export default class PDFObject {
+class PDFObject {
     static convert(object, encryptFn = null) {
     // String literals are converted to the PDF name type
         if (typeof object === 'string') {
@@ -126,3 +126,5 @@ export default class PDFObject {
         throw new Error(`unsupported number: ${n}`);
     }
 }
+
+exports.default = PDFObject;

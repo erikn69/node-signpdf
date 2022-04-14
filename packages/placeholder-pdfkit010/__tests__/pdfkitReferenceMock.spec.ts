@@ -9,7 +9,7 @@ describe('pdfkitReferenceMock', () => {
     it('accepts and stores additional data', () => {
         const index = 123;
         const data = 'DATA';
-        const instance = new PDFKitReferenceMock(index, {a: data, b: data});
+        const instance = new PDFKitReferenceMock(index, {a: data, b: data}) as {[k: string]: any};
         expect(instance.index).toBe(index);
         expect(instance.a).toBe(data);
         expect(instance.b).toBe(data);

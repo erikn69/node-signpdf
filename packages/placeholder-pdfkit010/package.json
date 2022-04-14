@@ -1,8 +1,7 @@
 {
   "name": "@signpdf/placeholder-pdfkit010",
   "version": "2.0.0",
-  "description": "> TODO: description",
-  "author": "Valery Buchinsky <djmute@abv.bg>",
+  "description": "",
   "homepage": "https://github.com/vbuch/node-signpdf#readme",
   "license": "ISC",
   "main": "lib/placeholder-pdfkit010.js",
@@ -26,5 +25,12 @@
   },
   "dependencies": {
     "@signpdf/utils": "^2.0.0"
+  },
+  "peerDependencies": {
+    "pdfkit": "^0.10.0"
+  },
+  "devDependencies": {
+    "pdfkit": "^0.10.0",
+    "@types/pdfkit": "^0.10.0"
   }
 }

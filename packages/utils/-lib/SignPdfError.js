@@ -1,8 +1,8 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.SignPdfErrorType = void 0;
 var SignPdfErrorType;
-(function(SignPdfErrorType) {
+(function (SignPdfErrorType) {
     SignPdfErrorType["UNKNOWN"] = "UNKNOWN";
     SignPdfErrorType["INPUT"] = "INPUT";
     SignPdfErrorType["PARSE"] = "PARSE";

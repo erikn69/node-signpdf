@@ -7,8 +7,6 @@ import {
     DEFAULT_BYTE_RANGE_PLACEHOLDER
 } from '@signpdf/utils'
 
-export {SignPdfError} from '@signpdf/utils'
-
 export class SignPdf {
     byteRangePlaceholder: string;
     lastSignature: string;

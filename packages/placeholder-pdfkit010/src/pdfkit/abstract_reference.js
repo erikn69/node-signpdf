@@ -15,4 +15,4 @@ class PDFAbstractReference {
     }
 }
 
-export default PDFAbstractReference;
+exports.default = PDFAbstractReference;

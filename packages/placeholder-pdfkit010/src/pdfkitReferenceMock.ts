@@ -1,7 +1,9 @@
 import PDFAbstractReference from './pdfkit/abstract_reference';
 
 class PDFKitReferenceMock extends PDFAbstractReference {
-    constructor(index, additionalData = undefined) {
+    index: number;
+    
+    constructor(index: number, additionalData = undefined) {
         super();
         this.index = index;
         if (typeof additionalData !== 'undefined') {

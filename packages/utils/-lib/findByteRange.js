@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 const SignPdfError_1 = require("./SignPdfError");
 const const_1 = require("./const");
 const findByteRange = (pdf) => {
