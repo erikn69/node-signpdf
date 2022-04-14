@@ -1,8 +1,7 @@
 {
   "name": "@signpdf/utils",
   "version": "2.0.0",
-  "description": "> TODO: description",
-  "author": "Valery Buchinsky <djmute@abv.bg>",
+  "description": "",
   "homepage": "https://github.com/vbuch/node-signpdf#readme",
   "license": "ISC",
   "main": "lib/utils.js",
@@ -23,5 +22,9 @@
   },
   "bugs": {
     "url": "https://github.com/vbuch/node-signpdf/issues"
+  },
+  "devDependencies": {
+    "@types/pdfkit": "^0.10.0",
+    "pdfkit": "^0.10.0"
   }
 }

@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import PDFDocument from 'pdfkit';
+import * as PDFDocument from 'pdfkit';
 import findByteRange from '../src/findByteRange';
 import SignPdfError, {SignPdfErrorType} from '../src/SignPdfError';
 // import plainAddPlaceholder from '../plainAddPlaceholder';
