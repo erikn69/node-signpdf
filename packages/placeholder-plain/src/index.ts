@@ -1,8 +1,13 @@
-import PDFObject from '../pdfkit/pdfobject';
-import PDFKitReferenceMock from '../pdfkitReferenceMock';
-import removeTrailingNewLine from '../removeTrailingNewLine';
-import {DEFAULT_SIGNATURE_LENGTH, SUBFILTER_ADOBE_PKCS7_DETACHED} from '../const';
-import pdfkitAddPlaceholder from '../pdfkitAddPlaceholder';
+import {
+    pdfkitAddPlaceholder,
+    PDFObject,
+    PDFKitReferenceMock
+} from '@signpdf/placeholder-pdfkit010';
+import {
+    removeTrailingNewLine,
+    DEFAULT_SIGNATURE_LENGTH,
+    SUBFILTER_ADOBE_PKCS7_DETACHED
+} from '@signpdf/utils';
 
 import getIndexFromRef from './getIndexFromRef';
 import readPdf from './readPdf';

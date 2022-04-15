@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://github.com/vbuch/node-signpdf#readme",
   "license": "ISC",
-  "main": "lib/placeholder-pdfkit010.js",
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"

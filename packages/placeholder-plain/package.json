@@ -25,6 +25,7 @@
     "url": "https://github.com/vbuch/node-signpdf/issues"
   },
   "dependencies": {
+    "@signpdf/placeholder-pdfkit010": "^2.0.0",
     "@signpdf/utils": "^2.0.0"
   }
 }

@@ -1,4 +1,4 @@
-import SignPdfError from '../../SignPdfError';
+import {SignPdfError, SignPdfErrorType} from "@signpdf/utils";
 
 /**
  * @param {Object} info As extracted from readRef()
@@ -10,7 +10,7 @@ export default function getPagesDictionaryRef(info) {
     if (match === null) {
         throw new SignPdfError(
             'Failed to find the pages descriptor. This is probably a problem in node-signpdf.',
-            SignPdfError.TYPE_PARSE,
+            SignPdfErrorType.PARSE,
         );
     }
 

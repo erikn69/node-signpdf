@@ -5,6 +5,7 @@ module.exports = {
         "^.+\\.ts$": "ts-jest",
     },
     testEnvironment: "node",
+    collectCoverageFrom: ["**/*.ts"],
     coverageThreshold: {
         global: {
             branches: 100,

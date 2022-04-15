@@ -91,7 +91,7 @@ class PDFObject {
             let streamData;
 
             // @todo this can probably be refactored into a reduce
-            Object.entries(object).forEach(([key, val]) => {
+            Object.entries(object).forEach(([key, val]: any) => {
                 let checkedValue = '';
 
                 if (val.toString().indexOf('<<') !== -1) {
@@ -127,4 +127,4 @@ class PDFObject {
     }
 }
 
-exports.default = PDFObject;
+export default PDFObject;

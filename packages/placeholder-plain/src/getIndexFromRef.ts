@@ -1,4 +1,4 @@
-import SignPdfError from '../../SignPdfError';
+import {SignPdfError, SignPdfErrorType} from "@signpdf/utils";
 
 /**
  * @param {object} refTable
@@ -12,7 +12,7 @@ const getIndexFromRef = (refTable, ref) => {
     if (!refTable.offsets.has(index)) {
         throw new SignPdfError(
             `Failed to locate object "${ref}".`,
-            SignPdfError.TYPE_PARSE,
+            SignPdfErrorType.PARSE,
         );
     }
     return index;

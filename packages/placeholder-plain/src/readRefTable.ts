@@ -1,4 +1,4 @@
-import SignPdfError from '../../SignPdfError';
+import {SignPdfError, SignPdfErrorType} from '@signpdf/utils';
 import xrefToRefMap from './xrefToRefMap';
 
 export const getLastTrailerPosition = (pdf) => {
@@ -18,7 +18,7 @@ export const getXref = (pdf, position) => {
     if (realPosition === -1) {
         throw new SignPdfError(
             `Could not find xref anywhere at or after ${position}.`,
-            SignPdfError.TYPE_PARSE,
+            SignPdfErrorType.PARSE,
         );
     }
     if (realPosition > 0) {
@@ -26,7 +26,7 @@ export const getXref = (pdf, position) => {
         if (prefix.toString().replace(/\s*/g, '') !== '') {
             throw new SignPdfError(
                 `Expected xref at ${position} but found other content.`,
-                SignPdfError.TYPE_PARSE,
+                SignPdfErrorType.PARSE,
             );
         }
     }
@@ -35,7 +35,7 @@ export const getXref = (pdf, position) => {
     if (nextEofPosition === -1) {
         throw new SignPdfError(
             'Expected EOF after xref and trailer but could not find one.',
-            SignPdfError.TYPE_PARSE,
+            SignPdfErrorType.PARSE,
         );
     }
     refTable = refTable.slice(0, nextEofPosition);
@@ -48,14 +48,14 @@ export const getXref = (pdf, position) => {
     if (!size) {
         throw new SignPdfError(
             'Size not found in xref table.',
-            SignPdfError.TYPE_PARSE,
+            SignPdfErrorType.PARSE,
         );
     }
     size = (/^\s*(\d+)/).exec(size);
     if (size === null) {
         throw new SignPdfError(
             'Failed to parse size of xref table.',
-            SignPdfError.TYPE_PARSE,
+            SignPdfErrorType.PARSE,
         );
     }
     size = parseInt(size[1]);

@@ -1,4 +1,4 @@
-import SignPdfError from '../../SignPdfError';
+import {SignPdfError, SignPdfErrorType} from "@signpdf/utils";
 
 const xrefToRefMap = (xrefString) => {
     const lines = xrefString.split('\n').filter((l) => l !== '');
@@ -16,7 +16,7 @@ const xrefToRefMap = (xrefString) => {
         if (expectedLines <= 0) {
             throw new SignPdfError(
                 'Too many lines in xref table.',
-                SignPdfError.TYPE_PARSE,
+                SignPdfErrorType.PARSE,
             );
         }
         expectedLines -= 1;
@@ -28,13 +28,13 @@ const xrefToRefMap = (xrefString) => {
         if (inUse.trim() !== 'n') {
             throw new SignPdfError(
                 `Unknown in-use flag "${inUse}". Expected "n" or "f".`,
-                SignPdfError.TYPE_PARSE,
+                SignPdfErrorType.PARSE,
             );
         }
         if (!/^\d+$/.test(offset.trim())) {
             throw new SignPdfError(
                 `Expected integer offset. Got "${offset}".`,
-                SignPdfError.TYPE_PARSE,
+                SignPdfErrorType.PARSE,
             );
         }
         const storeOffset = parseInt(offset.trim());
